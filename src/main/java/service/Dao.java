@@ -19,9 +19,9 @@ public User showUsers(int id){
         user=new User();
         user.setId(rs.getInt("id"));
         user.setName(rs.getString("name"));
-        user.setPas(rs.getString("pass"));
-        user.setfirstName(rs.getString("firstName")); 
-        user.setlastName(rs.getString("lastName"));  
+        user.setPassword(rs.getString("pass"));
+        user.setFirstName(rs.getString("firstName")); 
+        user.setLastName(rs.getString("lastName"));  
    }
     }catch(Exception e){
         e.printStackTrace();
@@ -39,9 +39,9 @@ public User showUsers(int id){
         User user=new User();
         user.setId(rs.getInt("id"));
         user.setName(rs.getString("name"));
-        user.setPas(rs.getString("pass"));
-        user.setfirstName(rs.getString("firstName")); 
-        user.setlastName(rs.getString("lastName"));  
+        user.setPassword(rs.getString("pass"));
+        user.setFirstName(rs.getString("firstName")); 
+        user.setLastName(rs.getString("lastName"));  
         userList.add(user);
    }
     }catch(Exception e){
@@ -55,9 +55,9 @@ public boolean updateUser(User user){
     try{
     pstmt = conn.prepareStatement("UPDATE user SET name=? , pass=? , firstName=? , lastName=? WHERE id = ?");   
     pstmt.setString(1, user.getName());
-    pstmt.setString(2, user.getPas());
-    pstmt.setString(3, user.getfirstName());
-    pstmt.setString(4, user.getlastName());
+    pstmt.setString(2, user.getPassword());
+    pstmt.setString(3, user.getFirstName());
+    pstmt.setString(4, user.getLastName());
     pstmt.setInt(5, user.getId());
     boolean flag=false;
      if(pstmt.executeUpdate() > 0)      
@@ -75,9 +75,9 @@ public boolean insertUser(User user){
     pstmt = conn.prepareStatement("INSERT into user(id,name,pass,firstName,lastName) VALUES (?,?,?,?,?)");
     pstmt.setInt(1, user.getId());
     pstmt.setString(2, user.getName());
-    pstmt.setString(3, user.getPas());   
-   pstmt.setString(4, user.getfirstName());   
-   pstmt.setString(5, user.getlastName()); 
+    pstmt.setString(3, user.getPassword());   
+   pstmt.setString(4, user.getFirstName());   
+   pstmt.setString(5, user.getLastName()); 
      if(pstmt.executeUpdate() > 0)      
     flag= true;
     else

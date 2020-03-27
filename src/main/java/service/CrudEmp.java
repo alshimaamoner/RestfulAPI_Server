@@ -23,13 +23,13 @@ public class CrudEmp {
     Dao dao=new Dao();
       
      @POST
-         @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
-       public Response addUser(User user){
-        boolean flag=dao.insertUser(user);
-        return Response.status(Status.CREATED).build();
+       public void addUser(User user){
+        dao.insertUser(user);
+        System.out.println("Employee Created...");
 
-        /*if(flag){
+        /*
+        if(flag){
             return "row add";
         }else{
             return "no row added";
@@ -55,10 +55,13 @@ public class CrudEmp {
     }
     
      @PUT
-     @Path("update")
-     public Response updateUser(User user){
-        boolean flag=dao.updateUser(user);
-         return Response.noContent().build();
+     @Path("/user/{id}")
+      @Consumes(MediaType.APPLICATION_JSON)
+     public void updateUser(@PathParam("id") int id,User user){
+        dao.updateUser(user);
+         System.out.println("Employee Update...");
+
+       //  return Response.noContent().build();
         /*if(flag){
             return "row updated";
         }else{

@@ -19,6 +19,11 @@ public class User{
         this.firstName=firstName;
         this.lastName=lastName;
     }
+    
+    @Override
+    public String toString() {
+        return "[ " + this.id + this.name + " ]";
+    }
       public int getId(){
         return id;
     }
@@ -26,13 +31,13 @@ public class User{
         return name;
     }
     
-      public String getPas(){
+      public String getPassword(){
         return password;
     }
-      public String getfirstName(){
+      public String getFirstName(){
         return firstName;
     }
-      public String getlastName(){
+      public String getLastName(){
         return lastName;
     }
       
@@ -42,13 +47,13 @@ public class User{
     public void setName(String name){
         this.name=name;
     }
-      public void setPas(String password){
+      public void setPassword(String password){
         this.password=password;
     }
-       public void setfirstName(String firstName){
+       public void setFirstName(String firstName){
         this.firstName=firstName;
     }
-      public void setlastName(String lastName){
+      public void setLastName(String lastName){
         this.lastName=lastName;
     }
     
